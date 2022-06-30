@@ -67,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 222
   },
   "right": {
     "id": "6cf1bea0782ad15a",
@@ -105,10 +105,13 @@
   "lastOpenFiles": [
     "_notes/Post install optimizations.md",
     "_notes/Linux.md",
-    "Untitled.md",
-    "_notes/how-markdown-is-rendered.md",
-    "_notes/How to use the special features.md",
-    "_notes/Obsidian integration.md",
-    "_notes/How-to-setup-this-site.md"
+    "_notes/Zram.md",
+    "assets/img/Pasted image 20220630233808.png",
+    "assets/img/Pasted image 20220630233622.png",
+    "about.md",
+    "_notes/temp.md",
+    "README.md",
+    "dates.md",
+    "index.md"
   ]
 }
