@@ -9,9 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "test.md",
+            "file": "_notes/Post install optimizations.md",
             "mode": "source",
-            "source": false
+            "source": true
           }
         },
         "group": "27493e99222b81d0"
@@ -22,9 +22,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "test.md",
+            "file": "_notes/Post install optimizations.md",
             "mode": "preview",
-            "source": false
+            "source": true
           }
         },
         "group": "27493e99222b81d0"
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test.md",
+                "file": "_notes/Post install optimizations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,6 +103,12 @@
   },
   "active": "a09eec3f4a32b53f",
   "lastOpenFiles": [
-    "test.md"
+    "_notes/Post install optimizations.md",
+    "_notes/Linux.md",
+    "Untitled.md",
+    "_notes/how-markdown-is-rendered.md",
+    "_notes/How to use the special features.md",
+    "_notes/Obsidian integration.md",
+    "_notes/How-to-setup-this-site.md"
   ]
 }
