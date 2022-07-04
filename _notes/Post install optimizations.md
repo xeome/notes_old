@@ -12,7 +12,7 @@ Replace base and udev with systemd for faster boots and set compression algorith
 
 (bellow isnt the whole file, just the parts that needs changes)
 ```ini
-HOOKS="systemd autodetect modconf block keyboard keymap consolefont filesystems"
+HOOKS="systemd autodetect...
 
 COMPRESSION="zstd"
 COMPRESSION_OPTIONS=(-2)
@@ -82,3 +82,4 @@ You can increase ``zram-size`` further if you find compression ratio to be high 
 ```ini
 vm.page-cluster = 0
 ```
+A more detailed explanation can about why these values were chosen can be found in [[Zram|here]].

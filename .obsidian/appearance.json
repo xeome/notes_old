@@ -1,4 +1,5 @@
 {
   "baseFontSize": 18,
-  "cssTheme": "Deep Work"
+  "cssTheme": "Deep Work",
+  "interfaceFontFamily": "SF Pro Display"
 }
