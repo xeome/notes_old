@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Zram.md",
+            "file": "_notes/Post install optimizations.md",
             "mode": "source",
             "source": true
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Zram.md",
+            "file": "_notes/Post install optimizations.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Zram.md",
+                "file": "_notes/Post install optimizations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,15 +103,15 @@
   },
   "active": "a09eec3f4a32b53f",
   "lastOpenFiles": [
-    "_notes/Zram.md",
     "_notes/Post install optimizations.md",
-    "_notes/Linux.md",
-    "assets/img/Pasted image 20220630233808.png",
-    "assets/img/Pasted image 20220630233857.png",
-    "_notes/Post install optimizations.pandoc.md",
-    "assets/img/Pasted image 20220630233622.png",
+    "_notes/Zram.md",
     "about.md",
-    "_notes/temp.md",
-    "README.md"
+    "README.md",
+    "dates.md",
+    "index.md",
+    "notes.md",
+    "tags.md",
+    "_notes/Linux.md",
+    "assets/img/Pasted image 20220630233808.png"
   ]
 }
