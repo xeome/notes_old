@@ -3,7 +3,7 @@ title: Post install optimizations
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-07-05 17:08
+date updated: 2022-07-12 00:04
 ---
 
 Links: [[Linux]]
@@ -12,16 +12,17 @@ Links: [[Linux]]
 
 ### Editing mkinitcpio.conf for faster boot times
 
-Replace base and udev with systemd for faster boots and set compression algorithm to zstd and compression level to 2 because compression ratio increase isn't worth the increased latency
+Replace udev with systemd for faster boots and set compression algorithm to zstd and compression level to 2 because compression ratio increase isn't worth the increased latency.
 
 (bellow isnt the whole file, just the parts that needs changes)
 
 ```ini
-HOOKS="systemd autodetect...
+HOOKS="base systemd autodetect...
 
 COMPRESSION="zstd"
 COMPRESSION_OPTIONS=(-2)
 ```
+Note: You can replace base AND udev with systemd but you will lose access to recovery shell.
 
 ### Changing io schedulers
 
@@ -108,12 +109,14 @@ A more detailed explanation can about why these values were chosen can be found 
 ### Transparent Huge Pages
 
 To summarize, transparent hugepages are a framework within the Linux kernel that allows it to automatically facilitate and allocate large memory page block sizes to processes (such as games) with sizes averaging around 2 MB per page and occasionally 1 GB (the kernel will automatically adjust the size to what the process needs).
+
 ```bash
 [user@host ~]$ cat /sys/kernel/mm/transparent_hugepage/enabled
 [always] madvise never
 ```
-You should try each value yourself to see if it improves your workflow, for more information click here [[Transparent Huge Pages]]
-To change it for current session:
+
+There are 3 values you can choose You should try each value yourself to see if it improves your workflow, for more information click here: [[Transparent Huge Pages]].
+To change the value for current session:
 
 ```bash
 echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled

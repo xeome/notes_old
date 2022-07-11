@@ -106,10 +106,10 @@
     "_notes/Transparent Huge Pages.md",
     "_notes/Zram.md",
     "_notes/Post install optimizations.md",
-    "_notes/Btrfs Maintenance.md",
     "_notes/Linux.md",
-    "_notes/btrfs maintenance.md",
     "_notes/JomOS.md",
+    "_notes/Btrfs Maintenance.md",
+    "_notes/btrfs maintenance.md",
     "about.md",
     "README.md",
     "dates.md"
