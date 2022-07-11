@@ -103,13 +103,17 @@ You can increase `zram-size` further if you find compression ratio to be high en
 vm.page-cluster = 0
 ```
 
-A more detailed explanation can about why these values were chosen can be found in [[Zram|here]].
+A more detailed explanation can about why these values were chosen can be found in [[Zram]].
 
 ### Transparent Huge Pages
 
 To summarize, transparent hugepages are a framework within the Linux kernel that allows it to automatically facilitate and allocate large memory page block sizes to processes (such as games) with sizes averaging around 2 MB per page and occasionally 1 GB (the kernel will automatically adjust the size to what the process needs).
-
-To enable it for current session:
+```bash
+[user@host ~]$ cat /sys/kernel/mm/transparent_hugepage/enabled
+[always] madvise never
+```
+You should try each value yourself to see if it improves your workflow, for more information click here [[Transparent Huge Pages]]
+To change it for current session:
 
 ```bash
 echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
@@ -117,6 +121,8 @@ echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 
 To make changes persist:\
 Install sysfsutils and then add `kernel/mm/transparent hugepage/enabled=always` to `/etc/sysfs.conf` or add `transparent_hugepage=always` to your bootloader's config file for the kernel command line.
+
+### Btrfs stuff
 
 # Additional sources
 
