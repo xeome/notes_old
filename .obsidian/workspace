@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Transparent Huge Pages.md",
+            "file": "_notes/JomOS Settings.md",
             "mode": "source",
             "source": true
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Transparent Huge Pages.md",
+            "file": "_notes/JomOS Settings.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Transparent Huge Pages.md",
+                "file": "_notes/JomOS Settings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,15 +103,15 @@
   },
   "active": "b053f5b326d5448a",
   "lastOpenFiles": [
-    "_notes/Transparent Huge Pages.md",
     "_notes/Zram.md",
+    "_notes/Btrfs Maintenance.md",
+    "_notes/JomOS Settings.md",
     "_notes/Post install optimizations.md",
+    "_notes/Transparent Huge Pages.md",
+    "index.md",
     "_notes/Linux.md",
     "_notes/JomOS.md",
-    "_notes/Btrfs Maintenance.md",
     "_notes/btrfs maintenance.md",
-    "about.md",
-    "README.md",
-    "dates.md"
+    "about.md"
   ]
 }
