@@ -6,7 +6,7 @@ season: summer
 date updated: 2022-07-05 00:42
 ---
 
-Links: [[Linux]], [[Post install optimizations]]
+Links: [[Linux]], [[Post install optimizations]], [[JomOS Settings]]
 
 # JomOS
 JomOS

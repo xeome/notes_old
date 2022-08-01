@@ -6,6 +6,8 @@ season: summer
 date updated: 2022-07-31 20:01
 ---
 
+Links: [[Linux]], [[JomOS]]
+
 # JomOS Settings
 
 Documentation for configuration tweaks of JomOS
@@ -40,7 +42,10 @@ Contains, as a percentage of total available memory that contains free pages and
 
 Contains, as a percentage of total available memory that contains free pages and reclaimable pages, the number of pages at which the background kernel flusher threads will start writing out dirty data (Default is 10).
 
-### Network tweaks (TODO)
+### Network tweaks
+The BBR congestion control algorithm can help achieve higher bandwidths and lower latencies for internet traffic
+
+TCP Fast Open is an extension to the transmission control protocol (TCP) that helps reduce network latency by enabling data to be exchanged during the sender’s initial TCP SYN. Using the value 3 instead of the default 1 allows TCP Fast Open for both incoming and outgoing connections
 
 ### kernel.nmi_watchdog
 
