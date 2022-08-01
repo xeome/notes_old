@@ -3,7 +3,7 @@ title: Transparent Huge Pages
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-07-12 00:31
+date updated: 2022-08-01 20:03
 ---
 
 Links: [[Linux]], [[Post install optimizations]]
@@ -30,19 +30,19 @@ Entirely disabled(mostly for debugging purposes).
 
 ---
 
-It might seem like `always` is the best option but there are some cases where it degrades performance like database software.
+It may appear that `always` is the best option, but in some cases, such as database software, it degrades performance.
 For example mongodb docs says:
 
 > Transparent Huge Pages (THP) is a Linux memory management system that reduces the overhead of Translation Lookaside Buffer (TLB) lookups on machines with large amounts of memory by using larger memory pages.
 >
 > However, database workloads often perform poorly with THP enabled, because they tend to have sparse rather than contiguous memory access patterns. When running MongoDB on Linux, THP should be disabled for best performance.
 
-So you should try each value to see which one is best for your workload.
+So you should experiment with each value to see which one works best for your workload.
 
 # Additional sources
 
-[https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html)
+<https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html>
 
-[https://access.redhat.com/solutions/46111](https://access.redhat.com/solutions/46111)
+<https://access.redhat.com/solutions/46111>
 
-[https://www.mongodb.com/docs/manual/tutorial/transparent-huge-pages/#:~:text=Transparent%20Huge%20Pages%20(THP)%20is,by%20using%20larger%20memory%20pages.](https://www.mongodb.com/docs/manual/tutorial/transparent-huge-pages/#:~:text=Transparent%20Huge%20Pages%20(THP)%20is,by%20using%20larger%20memory%20pages.)
+<https://www.mongodb.com/docs/manual/tutorial/transparent-huge-pages/#:~:text=Transparent%20Huge%20Pages%20(THP)%20is,by%20using%20larger%20memory%20pages.>

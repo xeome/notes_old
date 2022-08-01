@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/JomOS Settings.md",
+            "file": "_notes/Transparent Huge Pages.md",
             "mode": "source",
             "source": true
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/JomOS Settings.md",
+            "file": "_notes/Transparent Huge Pages.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/JomOS Settings.md",
+                "file": "_notes/Transparent Huge Pages.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,8 +103,8 @@
   },
   "active": "b053f5b326d5448a",
   "lastOpenFiles": [
-    "_notes/JomOS.md",
     "_notes/JomOS Settings.md",
+    "_notes/JomOS.md",
     "_notes/Linux.md",
     "_notes/Post install optimizations.md",
     "_notes/Zram.md",
