@@ -126,8 +126,6 @@ echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 To make changes persist:\
 Install sysfsutils and then add `kernel/mm/transparent hugepage/enabled=always` to `/etc/sysfs.conf` or add `transparent_hugepage=always` to your bootloader's config file for the kernel command line.
 
-### Btrfs stuff
-
 # Additional sources
 
 #### initramfs
