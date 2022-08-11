@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Btrfs Maintenance.md",
+            "file": "_notes/Zram.md",
             "mode": "source",
             "source": true
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Btrfs Maintenance.md",
+            "file": "_notes/Zram.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Btrfs Maintenance.md",
+                "file": "_notes/Zram.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,17 +101,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b053f5b326d5448a",
+  "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
-    "_notes/Post install optimizations.md",
+    "_notes/x86_64-v3 benchmarks.md",
+    "assets/img/benchmarks.png",
+    "_notes/JomOS.md",
+    "_notes/Zram.md",
     "_notes/Transparent Huge Pages.md",
+    "_notes/Post install optimizations.md",
     "_notes/Btrfs Maintenance.md",
     "_notes/Linux.md",
     "_notes/JomOS Settings.md",
-    "_notes/JomOS.md",
-    "_notes/Zram.md",
-    "index.md",
-    "_notes/btrfs maintenance.md",
-    "about.md"
+    "index.md"
   ]
 }

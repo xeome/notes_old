@@ -3,10 +3,10 @@ title: Zram
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-07-05 00:42
+date updated: 2022-08-11 19:15
 ---
 
-Links: [[Linux]], [[Post install optimizations]]
+Links: [[Linux]], [[Post install optimizations]], [[JomOS Settings]]
 
 # Zram
 
@@ -30,14 +30,13 @@ It is a logarithmic value - setting it to zero means “1 page”, setting it to
 The default value is three (eight pages at a time). There may be some small benefits in tuning this to a different value if your workload is swap-intensive.
 
 Lower values mean lower latencies for initial faults, but at the same time extra faults and I/O delays for following faults if they would have been part of that consecutive pages readahead would have brought in.
+![](/assets/img/benchmarks_zram_throughput.png)
 
-![](/assets/img/Pasted image 20220630233808.png)
-
-![](/assets/img/Pasted image 20220630233857.png)
+![](/assets/img/benchmarks_zram_latency.png)
 
 ## Main takeaways
 
-As you can see zstd has highest compression ratio but is also slower (but still at acceptable speeds). However, compression ratio advantage is more important here because high compression ratio lets more of the working set fit in uncompressed memory, reducing the need for swap and improving performance. 
+As you can see zstd has highest compression ratio but is also slower (but still at acceptable speeds). However, compression ratio advantage is more important here because high compression ratio lets more of the working set fit in uncompressed memory, reducing the need for swap and improving performance.
 
 With zstd, the decompression is so slow that that there's essentially zero throughput gain from readahead. Use vm.page-cluster=0 as higher values has a huge latency cost. (This is default on [ChromeOS](https://bugs.chromium.org/p/chromium/issues/detail?id=263561#c16=) and seems to be standard practice on [Android](https://cs.android.com/search?q=page-cluster&start=21).)
 
@@ -45,8 +44,8 @@ The default is `vm.page-cluster=3`, which is better suited for physical swap. G
 
 # Sources
 
-https://linuxreviews.org/Zram
+<https://linuxreviews.org/Zram>
 
-https://docs.kernel.org/admin-guide/sysctl/vm.html
+<https://docs.kernel.org/admin-guide/sysctl/vm.html>
 
-https://www.reddit.com/r/Fedora/comments/mzun99/new_zram_tuning_benchmarks/
+<https://www.reddit.com/r/Fedora/comments/mzun99/new_zram_tuning_benchmarks/>

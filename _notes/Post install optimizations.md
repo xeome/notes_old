@@ -6,7 +6,7 @@ season: summer
 date updated: 2022-07-12 00:04
 ---
 
-Links: [[Linux]]
+Links: [[Linux]] [[Btrfs Maintenance]] [[JomOS Settings]] [[Zram]]
 
 # Post install optimizations
 

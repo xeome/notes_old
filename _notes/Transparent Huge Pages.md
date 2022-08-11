@@ -46,3 +46,5 @@ So you should experiment with each value to see which one works best for your wo
 <https://access.redhat.com/solutions/46111>
 
 <https://www.mongodb.com/docs/manual/tutorial/transparent-huge-pages/#:~:text=Transparent%20Huge%20Pages%20(THP)%20is,by%20using%20larger%20memory%20pages.>
+
+<https://www.reddit.com/r/linux_gaming/comments/uhfjyt/underrated_advice_for_improving_gaming/>
