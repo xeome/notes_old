@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/x86_64-v3 benchmarks.md",
+            "file": "_notes/JomOS Optimizations.md",
             "mode": "source",
             "source": true
           }
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/x86_64-v3 benchmarks.md",
+            "file": "_notes/JomOS Optimizations.md",
             "mode": "preview",
             "source": true
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/x86_64-v3 benchmarks.md",
+                "file": "_notes/JomOS Optimizations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,15 +103,15 @@
   },
   "active": "b053f5b326d5448a",
   "lastOpenFiles": [
+    "_notes/JomOS Settings.md",
+    "_notes/JomOS Optimizations.md",
     "_notes/JomOS.md",
     "_notes/x86_64-v3 benchmarks.md",
-    "_notes/JomOS Settings.md",
     "_notes/Linux.md",
     "_notes/Post install optimizations.md",
     "_notes/Transparent Huge Pages.md",
     "_notes/Zram.md",
     "_notes/Btrfs Maintenance.md",
-    "assets/img/benchmarks.png",
-    "index.md"
+    "assets/img/benchmarks.png"
   ]
 }
