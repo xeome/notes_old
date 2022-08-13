@@ -19,8 +19,7 @@ JomOS integrates these configurations & optimizations into one largely cohesive 
 ## How does JomOS improve performance
 
 We use tuned systctl values, udev rules and other configurations, refer to [[JomOS Settings]].  We also provide a optimized repo with march=x86-64-v3 support (CachyOS repos) which comes with a notable performance boost. It depends on your cpu if it does support that, but you dont need to worry about it - the installer will detect the correct µarch and adjust to your system. Custom tuned kernel is also planned.
-TODO: add dedicated JomOS optimizations tab
-
+For more information refer to [[JomOS Optimizations]]
 ## Screenshots
 
 #### XFCE

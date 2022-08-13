@@ -3,7 +3,7 @@ title: JomOS Settings
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-13 16:57
+date updated: 2022-08-13 20:58
 ---
 
 Links: [[Linux]], [[JomOS]], [[JomOS Optimizations]]

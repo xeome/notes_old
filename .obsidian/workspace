@@ -6,25 +6,21 @@
       {
         "id": "1d0dc1cdaca89b28",
         "type": "leaf",
-        "dimension": 50.49813200498132,
+        "dimension": 50.49813200498133,
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "_notes/x86_64-v3 benchmarks.md",
-            "mode": "source",
-            "source": true
-          }
+          "type": "graph",
+          "state": {}
         },
         "group": "52ed2403d13c4b05"
       },
       {
         "id": "2690fee08ea5dd6b",
         "type": "leaf",
-        "dimension": 49.50186799501868,
+        "dimension": 49.50186799501867,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/x86_64-v3 benchmarks.md",
+            "file": "_notes/Linux.md",
             "mode": "preview",
             "source": true
           }
@@ -85,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/x86_64-v3 benchmarks.md",
+                "file": "_notes/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,11 +101,11 @@
   },
   "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
-    "_notes/Zram.md",
+    "_notes/JomOS.md",
     "_notes/JomOS Optimizations.md",
     "_notes/JomOS Settings.md",
     "_notes/x86_64-v3 benchmarks.md",
-    "_notes/JomOS.md",
+    "_notes/Zram.md",
     "_notes/Btrfs Maintenance.md",
     "_notes/Transparent Huge Pages.md",
     "_notes/Post install optimizations.md",
