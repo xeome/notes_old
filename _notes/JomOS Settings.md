@@ -3,10 +3,10 @@ title: JomOS Settings
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-07-31 20:01
+date updated: 2022-08-13 16:57
 ---
 
-Links: [[Linux]], [[JomOS]]
+Links: [[Linux]], [[JomOS]], [[JomOS Optimizations]]
 
 # JomOS Settings
 
@@ -43,6 +43,7 @@ Contains, as a percentage of total available memory that contains free pages and
 Contains, as a percentage of total available memory that contains free pages and reclaimable pages, the number of pages at which the background kernel flusher threads will start writing out dirty data (Default is 10).
 
 ### Network tweaks
+
 The BBR congestion control algorithm can help achieve higher bandwidths and lower latencies for internet traffic
 
 TCP Fast Open is an extension to the transmission control protocol (TCP) that helps reduce network latency by enabling data to be exchanged during the sender’s initial TCP SYN. Using the value 3 instead of the default 1 allows TCP Fast Open for both incoming and outgoing connections
@@ -50,3 +51,32 @@ TCP Fast Open is an extension to the transmission control protocol (TCP) that he
 ### kernel.nmi_watchdog
 
 Disabling NMI watchdog will speed up your boot and shutdown, because one less module is loaded. Additionally disabling watchdog timers increases performance and lowers power consumption
+
+## /etc/udev/rules.d/ioscheduler.rules
+
+The kernel component that determines the order in which block I/O operations are submitted to storage devices is the input/output (I/O) scheduler.The goal of the I/O scheduler is to optimize how these can deal with read requests, it is useful to review some specifications of the two main drive types:
+
+- An HDD has spinning disks and a physical head that moves to the required location. As a result, random latency is quite high, ranging between 3 and 12ms (depending on whether it is a high-end server drive or a laptop drive bypassing the disk controller write buffer), whereas sequential access provides significantly higher throughput. The average HDD throughput is approximately 200 I/O operations per second (IOPS).
+
+- An SSD does not have moving parts, random access is as fast as sequential one, typically under 0.1ms, and it can handle multiple concurrent requests. The typical SSD throughput is greater than 10,000 IOPS, which is more than needed in common workload situations.
+
+Thousands of IOPS can be generated if multiple processes make I/O requests to different storage parts, whereas a typical HDD can only handle about 200 IOPS. There is a queue of requests that must wait for storage access. This is where I/O schedulers can help with optimization.
+
+The best scheduler to use is determined by both the device and the specific nature of the workload. Furthermore, throughput in MB/s is not the only measure of performance: deadlines or fairness reduce overall throughput while improving system responsiveness.
+
+```ini
+# set scheduler for NVMe
+ACTION=="add|change", KERNEL=="nvme[0-9]n[0-9]", ATTR{queue/scheduler}="none"
+# set scheduler for SSD and eMMC
+ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+# set scheduler for rotating disks
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+```
+
+For example the [udev](https://wiki.archlinux.org/title/Udev "Udev") rule above sets the scheduler to _none_ for [NVMe](https://wiki.archlinux.org/title/NVMe "NVMe"), _mq-deadline_ for [SSD](https://wiki.archlinux.org/title/SSD "SSD")/eMMC, and _bfq_ for rotational drives:
+
+## Sources
+
+<https://wiki.archlinux.org/title/improving_performance#Input/output_schedulers>
+
+<https://github.com/xeome/JomOS/blob/master/etc/sysctl.d/99-JomOS-settings.conf>

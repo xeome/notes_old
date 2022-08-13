@@ -4,30 +4,32 @@
     "type": "split",
     "children": [
       {
-        "id": "b053f5b326d5448a",
+        "id": "1d0dc1cdaca89b28",
         "type": "leaf",
+        "dimension": 50.49813200498132,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/JomOS Optimizations.md",
+            "file": "_notes/x86_64-v3 benchmarks.md",
             "mode": "source",
             "source": true
           }
         },
-        "group": "20997f4d6b9da861"
+        "group": "52ed2403d13c4b05"
       },
       {
-        "id": "1d0dc1cdaca89b28",
+        "id": "2690fee08ea5dd6b",
         "type": "leaf",
+        "dimension": 49.50186799501868,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/JomOS Optimizations.md",
+            "file": "_notes/x86_64-v3 benchmarks.md",
             "mode": "preview",
             "source": true
           }
         },
-        "group": "20997f4d6b9da861"
+        "group": "52ed2403d13c4b05"
       }
     ],
     "direction": "vertical"
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/JomOS Optimizations.md",
+                "file": "_notes/x86_64-v3 benchmarks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,17 +103,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b053f5b326d5448a",
+  "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
-    "_notes/JomOS Settings.md",
-    "_notes/JomOS Optimizations.md",
-    "_notes/JomOS.md",
-    "_notes/x86_64-v3 benchmarks.md",
-    "_notes/Linux.md",
-    "_notes/Post install optimizations.md",
-    "_notes/Transparent Huge Pages.md",
     "_notes/Zram.md",
+    "_notes/JomOS Optimizations.md",
+    "_notes/JomOS Settings.md",
+    "_notes/x86_64-v3 benchmarks.md",
+    "_notes/JomOS.md",
     "_notes/Btrfs Maintenance.md",
+    "_notes/Transparent Huge Pages.md",
+    "_notes/Post install optimizations.md",
+    "_notes/Linux.md",
     "assets/img/benchmarks.png"
   ]
 }

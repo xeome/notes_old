@@ -6,7 +6,7 @@ season: summer
 date updated: 2022-08-01 20:03
 ---
 
-Links: [[Linux]], [[Post install optimizations]]
+Links: [[Linux]], [[Post install optimizations]], [[JomOS]]
 
 # Transparent Huge Pages
 
