@@ -8,8 +8,12 @@
         "type": "leaf",
         "dimension": 50.49813200498133,
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "_notes/JomOS Settings.md",
+            "mode": "source",
+            "source": true
+          }
         },
         "group": "52ed2403d13c4b05"
       },
@@ -20,7 +24,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Linux.md",
+            "file": "_notes/JomOS Settings.md",
             "mode": "preview",
             "source": true
           }
@@ -81,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Linux.md",
+                "file": "_notes/JomOS Settings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,15 +105,15 @@
   },
   "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
+    "_notes/Post install optimizations.md",
+    "_notes/JomOS Settings.md",
+    "_notes/Zram.md",
     "_notes/JomOS.md",
     "_notes/JomOS Optimizations.md",
-    "_notes/JomOS Settings.md",
-    "_notes/x86_64-v3 benchmarks.md",
-    "_notes/Zram.md",
-    "_notes/Btrfs Maintenance.md",
     "_notes/Transparent Huge Pages.md",
-    "_notes/Post install optimizations.md",
+    "_notes/Btrfs Maintenance.md",
     "_notes/Linux.md",
+    "_notes/x86_64-v3 benchmarks.md",
     "assets/img/benchmarks.png"
   ]
 }

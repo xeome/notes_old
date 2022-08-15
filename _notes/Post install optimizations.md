@@ -12,7 +12,7 @@ Links: [[Linux]] [[Btrfs Maintenance]] [[JomOS Settings]] [[Zram]]
 
 ### Editing mkinitcpio.conf for faster boot times
 
-Replace udev with systemd for faster boots and set compression algorithm to zstd and compression level to 2 because compression ratio increase isn't worth the increased latency.
+Replace udev with systemd for faster boots and set compression algorithm to zstd and compression level to 2 because compression ratio increase isn't worth the increased boot time.
 
 (bellow isnt the whole file, just the parts that needs changes)
 
