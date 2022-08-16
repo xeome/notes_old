@@ -3,11 +3,12 @@ title: Unevictable LRU Infrastructure
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-16 23:59
+date updated: 2022-08-17 00:10
 ---
 
 Links: [[Linux]], [[Zram]]
-(This page is paraphrased from kernel documentation but attempted to shorten & make it easier to understand)
+
+(This page is paraphrased from kernel documentation attempting to shorten & make it easier to understand)
 
 # Unevictable LRU Infrastructure
 
