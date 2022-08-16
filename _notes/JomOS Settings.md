@@ -3,7 +3,7 @@ title: JomOS Settings
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-13 20:58
+date updated: 2022-08-15 17:13
 ---
 
 Links: [[Linux]], [[JomOS]], [[JomOS Optimizations]]
@@ -76,8 +76,11 @@ ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queu
 For example the [udev](https://wiki.archlinux.org/title/Udev "Udev") rule above sets the scheduler to _none_ for [NVMe](https://wiki.archlinux.org/title/NVMe "NVMe"), _mq-deadline_ for [SSD](https://wiki.archlinux.org/title/SSD "SSD")/eMMC, and _bfq_ for rotational drives:
 
 ## /etc/mkinitcpio.conf
+
 Base and udev replaced with systemd for faster boots and set compression algorithm to zstd and compression level to 2 because compression ratio increase isn't worth the increased boot time.
+
 ## etc/systemd/zram-generator.conf
+
 Use zstd compression by default, for more information visit [[Zram]]
 
 ## Sources
