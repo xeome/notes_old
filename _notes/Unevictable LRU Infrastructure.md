@@ -3,7 +3,7 @@ title: Unevictable LRU Infrastructure
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-17 18:12
+date updated: 2022-08-18 00:22
 ---
 
 Links: [[Linux]], [[Zram]]
@@ -64,13 +64,22 @@ For facilities such as ramfs none of the pages attached to the address space may
   Query the address space, and return true if it is completely unevictable.
 
 ### Detecting Unevictable Pages
+
 In vmscan.c, the function page evictable() checks the AS_UNEVICTABLE flag to see if a page is evictable or not.
 
 For address spaces that are so marked after being populated (as SHM regions may be), the lock action (eg: SHM LOCK) can be lazy, and does not need to populate the page tables for the region as mlock() does, nor does it need to make any special effort to push any pages in the SHM LOCK'd area to the unevictable list. Instead, vmscan will do this if and when the pages are encountered during a reclamation scan.
 
 The unlocker (eg: shmctl()) must scan the pages in the region and "rescue" them from the unevictable list if no other condition is keeping them unevictable on an unlock action (such as SHM_UNLOCK). When an unevictable region is destroyed, the pages are "rescued" from the unevictable list as part of the process of freeing them.
 
-page evictable() also checks for mlocked pages by testing an additional page flag, PG_mlocked (as wrapped by PageMlocked()), which is set when a page is faulted into or found in a VM_LOCKED vma.
+page_evictable() also checks for mlocked pages by testing an additional page flag, PG_mlocked (as wrapped by PageMlocked()), which is set when a page is faulted into or found in a VM_LOCKED vma.
+
+### Vmscan's Handling of Unevictable Pages
+
+If unevictable pages are culled in the fault path or moved to the unevictable list during mlock() or mmap(), vmscan will not encounter them until they are evictable again (via munlock(), for example) and "rescued" from the unevictable list. However, there may be times when we decide to leave an unevictable page on one of the regular active/inactive LRU lists for vmscan to deal with. vmscan looks for such pages in all of the shrink_{active|inactive|page}_list() functions and will "cull" any that it finds: that is, it diverts those pages to the zone being scanned's unevictable list.
+
+It is possible that a page is mapped into a VM_LOCKED VMA but is not marked as PG_mlocked. Such pages will be detected when vmscan walks the reverse map in try to unmap() (). If try to unmap() returns SWAP_MLOCK, shrink_page_list() will remove the page.
+
+After dropping the page lock, vmscan uses putback_lru_page(), which is the opposite operation of isolate lru_page(), to put the unevictable page back on the LRU list, effectively "culling" it. putback_lru_page() will recheck the unevictable state of a page that it adds to the unevictable list because the condition that makes the page unevictable may change once the page is unlocked. Putback_lru_page() removes the page from the list and performs additional attempts, including the page_unevictable() test, if the page has ceased to be evictable. These extra evictability checks shouldn't happen in the majority of calls to putback_lru_page() because such a race is an uncommon occurrence and movement of pages onto the unevictable list should be uncommon.
 
 # Sources
 
