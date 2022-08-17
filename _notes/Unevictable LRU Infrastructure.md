@@ -3,12 +3,10 @@ title: Unevictable LRU Infrastructure
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-17 00:10
+date updated: 2022-08-17 18:12
 ---
 
 Links: [[Linux]], [[Zram]]
-
-(This page is paraphrased from kernel documentation attempting to shorten & make it easier to understand)
 
 # Unevictable LRU Infrastructure
 
@@ -22,9 +20,9 @@ The unevictable list addresses the following classes of unevictable pages:
 
 ### The Unevictable Page List
 
-The Unevictable LRU infrastructure consists of a per-zone additional LRU list called the "unevictable" list and an associated page flag, PG unevictable, to indicate that the page is managed on the unevictable list.
+The Unevictable LRU infrastructure consists of a per-zone additional LRU list called the "unevictable" list and an associated page flag, PG_unevictable, to indicate that the page is managed on the unevictable list.
 
-The PG unevictable flag is similar to, but not the same as, the PG active flag in that it indicates which LRU list a page is on when PG lru is set.
+The PG_unevictable flag is similar to, but not the same as, the PG_active flag in that it indicates which LRU list a page is on when PG_lru is set.
 
 The Unevictable LRU infrastructure keeps unevictable pages on an additional LRU list for a few reasons:
 
@@ -37,7 +35,7 @@ The unevictable list benefits from the “arrayification” of the per-zone LRU 
 
 The LRU pagevec mechanism is not used by the unevictable list. Unevictable pages are instead added to the page's zone's unevictable list under the zone lru lock. This allows us to avoid stranding pages on the unevictable list when one task isolates the page from the LRU while other tasks change the "evictability" state of the page.
 
-## Memory Control Group Interaction
+### Memory Control Group Interaction
 
 By extending the lru list enum, the unevictable LRU facility communicates with the memory control group (aka memory controller; see Documentation/cgroup-v1/memory.txt).
 
@@ -48,3 +46,34 @@ When memory pressure is applied to a memory control group, the controller will n
 1. Because the pages on the unevictable list are "hidden" from reclaim, the reclaim process can be more efficient, dealing only with pages that have a chance of being reclaimed.
 
 2. However, if too many of the pages charged to the control group are unevictable, the evictable portion of the control group's working set may not fit into the available memory. The control group may thrash or OOM-kill tasks as a result of this.
+
+### Marking Address Spaces Unevictable
+
+For facilities such as ramfs none of the pages attached to the address space may be evicted. The AS_UNEVICTABLE address space flag is provided to prevent eviction of such pages, and it can be manipulated by a filesystem using a number of wrapper functions:
+
+- `void mapping_set_unevictable(struct address_space *mapping);`
+
+  Mark the address space as being completely unevictable.
+
+- `void mapping_clear_unevictable(struct address_space *mapping);`
+
+  Mark the address space as being evictable.
+
+- `int mapping_unevictable(struct address_space *mapping);`
+
+  Query the address space, and return true if it is completely unevictable.
+
+### Detecting Unevictable Pages
+In vmscan.c, the function page evictable() checks the AS_UNEVICTABLE flag to see if a page is evictable or not.
+
+For address spaces that are so marked after being populated (as SHM regions may be), the lock action (eg: SHM LOCK) can be lazy, and does not need to populate the page tables for the region as mlock() does, nor does it need to make any special effort to push any pages in the SHM LOCK'd area to the unevictable list. Instead, vmscan will do this if and when the pages are encountered during a reclamation scan.
+
+The unlocker (eg: shmctl()) must scan the pages in the region and "rescue" them from the unevictable list if no other condition is keeping them unevictable on an unlock action (such as SHM_UNLOCK). When an unevictable region is destroyed, the pages are "rescued" from the unevictable list as part of the process of freeing them.
+
+page evictable() also checks for mlocked pages by testing an additional page flag, PG_mlocked (as wrapped by PageMlocked()), which is set when a page is faulted into or found in a VM_LOCKED vma.
+
+# Sources
+
+<https://www.kernel.org/doc/html/v4.19/vm/unevictable-lru.html>
+
+(This page is paraphrased from kernel documentation attempting to shorten & make it easier to understand)
