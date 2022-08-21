@@ -65,9 +65,9 @@ For facilities such as ramfs none of the pages attached to the address space may
 
 ### Detecting Unevictable Pages
 
-In vmscan.c, the function page evictable() checks the AS_UNEVICTABLE flag to see if a page is evictable or not.
+In vmscan.c, the function page_evictable() checks the AS_UNEVICTABLE flag to see if a page is evictable or not.
 
-For address spaces that are so marked after being populated (as SHM regions may be), the lock action (eg: SHM LOCK) can be lazy, and does not need to populate the page tables for the region as mlock() does, nor does it need to make any special effort to push any pages in the SHM LOCK'd area to the unevictable list. Instead, vmscan will do this if and when the pages are encountered during a reclamation scan.
+For address spaces that are so marked after being populated (as SHM regions may be), the lock action (eg: SHM_LOCK) can be lazy, and does not need to populate the page tables for the region as mlock() does, nor does it need to make any special effort to push any pages in the SHM LOCK'd area to the unevictable list. Instead, vmscan will do this if and when the pages are encountered during a reclamation scan.
 
 The unlocker (eg: shmctl()) must scan the pages in the region and "rescue" them from the unevictable list if no other condition is keeping them unevictable on an unlock action (such as SHM_UNLOCK). When an unevictable region is destroyed, the pages are "rescued" from the unevictable list as part of the process of freeing them.
 

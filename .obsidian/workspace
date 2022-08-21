@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Unevictable LRU Infrastructure.md",
+            "file": "_notes/Emulating cortex a72.md",
             "mode": "source",
             "source": true
           }
@@ -24,7 +24,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "_notes/Unevictable LRU Infrastructure.md",
+            "file": "_notes/Emulating cortex a72.md",
             "mode": "preview",
             "source": true
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Unevictable LRU Infrastructure.md",
+                "file": "_notes/Emulating cortex a72.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,14 +106,14 @@
   "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
     "_notes/Transparent Huge Pages.md",
+    "_notes/Emulating cortex a72.md",
     "_notes/Unevictable LRU Infrastructure.md",
-    "_notes/JomOS Settings.md",
-    "_notes/JomOS Optimizations.md",
     "_notes/Post install optimizations.md",
-    "_notes/Zram.md",
+    "_notes/JomOS Settings.md",
     "_notes/JomOS.md",
+    "_notes/JomOS Optimizations.md",
+    "_notes/Zram.md",
     "_notes/Btrfs Maintenance.md",
-    "_notes/Linux.md",
-    "_notes/x86_64-v3 benchmarks.md"
+    "_notes/Linux.md"
   ]
 }
