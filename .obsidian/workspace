@@ -12,7 +12,7 @@
           "state": {
             "file": "_notes/Emulating cortex a72.md",
             "mode": "source",
-            "source": true
+            "source": false
           }
         },
         "group": "52ed2403d13c4b05"
@@ -26,7 +26,7 @@
           "state": {
             "file": "_notes/Emulating cortex a72.md",
             "mode": "preview",
-            "source": true
+            "source": false
           }
         },
         "group": "52ed2403d13c4b05"
@@ -105,10 +105,10 @@
   },
   "active": "1d0dc1cdaca89b28",
   "lastOpenFiles": [
-    "_notes/Transparent Huge Pages.md",
-    "_notes/Emulating cortex a72.md",
-    "_notes/Unevictable LRU Infrastructure.md",
     "_notes/Post install optimizations.md",
+    "_notes/Unevictable LRU Infrastructure.md",
+    "_notes/Emulating cortex a72.md",
+    "_notes/Transparent Huge Pages.md",
     "_notes/JomOS Settings.md",
     "_notes/JomOS.md",
     "_notes/JomOS Optimizations.md",

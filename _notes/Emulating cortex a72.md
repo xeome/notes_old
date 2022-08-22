@@ -225,4 +225,4 @@ VM$ poweroff
 $ ./rpistart.sh
 ```
 
-- And voilá!
+- You might still get an error saying networking service but you should be able to use internet
