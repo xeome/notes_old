@@ -3,26 +3,26 @@ title: Emulating cortex a72
 tags: #linux
 toc: true
 season: summer
-date updated: 2022-08-21 14:35
+date updated: 2022-08-30 17:03
 ---
 
 # Starting out (Preparing for emulation)
 
-- Make a sort of Project directory
+- Create a Project directory.
 
 ```sh
 $ mkdir rpi_image
 $ cd rpi_image
 ```
 
-- Download Debian RasPi4 Image & decompress
+- Download and decompress the Debian RasPi4 image.
 
 ```sh
 $ wget https://raspi.debian.net/tested/20220808_raspi_4_bookworm.img.xz
 $ xz --decompress 20220808_raspi_4_bookworm.img.xz
 ```
 
-- Find starting sector number via `fdisk`
+- Using `fdisk`, determine the starting sector number.
 
 ```sh
 $ fdisk -l 20220808_raspi_4_bookworm.img
@@ -41,7 +41,8 @@ Device         Boot  Start     End Sectors  Size Id Type
 20220808_raspi_4_bookworm.img2      819200 4095999 3276800  1,6G 83 Linux
 ```
 
-- Before we mount the image to do some stuff, we need to get an offset in order to correctly mount.<br>In second partition `$something.img2`, find the `Start` number. In my case, it's `819200`. Multiply it by `512`, which in my case, it equals to `419430400`.
+- Before we mount the image to do some stuff, we need to get an offset in order to correctly mount.<br>Find the `Start` number in the second partition `$something.img2`. It's `819200` in my case. Multiply it by 512, which equals `419430400` in my case.
+
 - Create a mount directory:
 
 ```sh
@@ -61,7 +62,7 @@ $ cp /mnt/raspi4/vmlinuz .
 $ cp /mnt/raspi4/initrd.img .
 ```
 
-- Finally, we need to edit `fstab` for slicker(?) mounting via QEMU<br>BIG NOTE: Use your favorite text editor, smh.
+- Finally, we need to edit `fstab` for slicker(?) mounting via QEMU
 
 ```
 $ nano /mnt/raspi4/etc/fstab
@@ -78,7 +79,7 @@ LABEL=RASPIFIRM /boot/firmware vfat rw 0 2
 
 - Replace `LABEL=RASPIFIRM` with `/dev/vda1`
 
-- File should look something like this
+- The file should look something like this.
 
 ```sh
 # The root file system has fs_passno=1 as per fstab(5) for automatic fsck.
@@ -87,7 +88,7 @@ LABEL=RASPIFIRM /boot/firmware vfat rw 0 2
 /dev/vda1 /boot/firmware vfat rw 0 2
 ```
 
-- Now we can convert image to qcow2
+- We can now convert the image to qcow2.
 
 ```sh
 qemu-img convert -f raw -O qcow2 20220808_raspi_4_bookworm.img rpi.qcow2
@@ -122,12 +123,13 @@ sudo qemu-system-aarch64 \
 
 ### Some info about script
 
-- - _Since QEMU doesn't natively support Raspberry Pi 4(b), our only option is to virtualize Cortex A72 (Which is CPU used in Raspberry Pi 4(b))._
-- - `-nographic` because _who needs graphics._
-- - `screen` is used 'cuz _why not_.
+-  _Since QEMU doesn't natively support Raspberry Pi 4(b), our only option is to virtualize Cortex A72 (Which is CPU used in Raspberry Pi 4(b))._
+-  `-nographic` because _who needs graphics._
+-  `screen` is used 'cuz _why not_.
 
 <br>
 * Make script executable
+
 ```sh
 $ chmod +x rpistart.sh
 ```
@@ -145,7 +147,7 @@ You have booted into nice Debian. Oh, btw, username is passwordless `root`.<br>B
 
 Very simple. Just:
 
-- poweroff ze VM.
+- poweroff the VM.
 
 ```sh
 VM$ poweroff
@@ -181,7 +183,7 @@ VM$ df -H
 
 ## No internet!
 
-We gonna create interfaces! Just kidding, I have no idea what I'm doing, but this works, so ig it works.
+Now we are going to configure our ethernet network interface.
 
 - You can check available network interfaces via:
 
@@ -215,6 +217,7 @@ auto enp0s1
 iface enp0s1 inet dhcp
 ```
 
+- And delete eth0 interface
 - Reboot (Although config won't actually let you reboot.)
 
 ```sh
@@ -225,4 +228,4 @@ VM$ poweroff
 $ ./rpistart.sh
 ```
 
-- You might still get an error saying networking service but you should be able to use internet
+- You may still receive a networking service error, but you should be able to access the internet.
