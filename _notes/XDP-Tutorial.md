@@ -4,7 +4,7 @@ tags:
   - '#linux'
 toc: true
 season: summer
-date updated: 2022-08-30 17:14
+date updated: 2022-08-30 17:49
 ---
 
 Links: [[Linux]]
@@ -24,6 +24,37 @@ Please keep in mind that this tutorial was written by a university first-year co
 For basic dependencies refer to <https://github.com/xdp-project/xdp-tutorial/blob/master/setup_dependencies.org>.
 
 You will also need xdp-tools. If your distribution repositories lack xdp-tools, you can follow the build instructions from here <https://github.com/xdp-project/xdp-tools> .
+
+## Examples
+
+### Example 1 - Writing a program to pass all packets
+
+```C
+#include <linux/bpf.h>
+#include <bpf/bpf_helpers.h>
+
+SEC("xdp_pass")
+int xdp_prog_simple(struct xdp_md *ctx)
+{
+    return XDP_PASS;
+}
+
+char _license[] SEC("license") = "GPL";
+```
+
+#### Compiling and loading the example code
+
+The LLVM+clang compiler turns this restricted-C code into BPF-byte-code and stores it in an ELF object file, named `xdp_pass.o`
+**Building:**
+`clang -O2 -g -Wall -target bpf -c xdp_pass.c -o xdp_pass.o`
+
+**Loading:**
+`sudo xdp-loader load -m skb -s prog interface_name xdp_pass.o`
+Change the interface_name to the name of your interface (for example, `eth0`, `wlan0`).
+
+**Unloading:**
+`sudo xdp-loader unload -a interface_name`
+As previously described, change the interface name.
 
 ## Sources
 
